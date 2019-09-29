@@ -33,10 +33,21 @@ mdbook を起動した上で mdbook ディレクトリ以下のファイルを�
 - [SUMMARY\.md \- mdBook Documentation](https://rust-lang-nursery.github.io/mdBook/format/summary.html)
 - [Configuration \- mdBook Documentation](https://rust-lang-nursery.github.io/mdBook/format/config.html)
 
-# デプロイ
+# 手動デプロイ
 
 s3 にバケットを用意した上で以下を実行すると `mdbook/book` 以下のファイルがデプロイされます。
 
 ```shell
 docker-compose -f docker-compose-deployment.yml up
 ```
+
+# CircleCI でデプロイ
+
+CircleCI 側の環境変数に以下の環境変数を設定します
+
+- AWS_ACCESS_KEY_ID
+- AWS_SECRET_ACCESS_KEY
+- AWS_DEFAULT_REGION
+- BUCKET_NAME
+- DEPLOYMENT=true
+- BUILDING=true
