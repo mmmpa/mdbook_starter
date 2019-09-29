@@ -10,6 +10,6 @@ services:
       - "$PORT:3000"
     command: >
       bash -c '
-      test -e mdbook/book.toml || mdbook init;
+      test -e book.toml || mdbook init;
       mdbook serve -p 3000
       '

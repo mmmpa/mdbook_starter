@@ -1,14 +1,16 @@
 # mdbook starter
 
+# mdbook をつくる
+
 ## 準備
 
-```
+```shell
 cp env.sample env
 ```
 
 .env ファイルにポートや、コンテナの実行ユーザーを設定します。
 
-自分の UID GID は `$UID` `$GID` で参照できます。
+必要に応じてコメントアウトされた値を設定しなおしてください。
 
 ## 起動
 
@@ -22,7 +24,7 @@ docker-compose up
 
 ## 編集
 
-mdbook 以下のファイルを変更するとページに反映されます。
+mdbook を起動した上で mdbook ディレクトリ以下のファイルを変更するとページに反映されます。
 
 細かいルールは [mdBook \- mdBook Documentation](https://rust-lang-nursery.github.io/mdBook/) を参照してください。
 
@@ -30,3 +32,11 @@ mdbook 以下のファイルを変更するとページに反映されます。
 
 - [SUMMARY\.md \- mdBook Documentation](https://rust-lang-nursery.github.io/mdBook/format/summary.html)
 - [Configuration \- mdBook Documentation](https://rust-lang-nursery.github.io/mdBook/format/config.html)
+
+# デプロイ
+
+s3 にバケットを用意した上で以下を実行すると `mdbook/book` 以下のファイルがデプロイされます。
+
+```shell
+docker-compose -f docker-compose-deployment.yml up
+```
