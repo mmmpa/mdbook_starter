@@ -6,9 +6,10 @@ services:
     volumes:
      - ./mdbook:/mdbook
     ports:
-      - "$PORT:3000"
+      - "$PORT:$PORT"
+      - "$WPORT:$WPORT"
     command: >
       bash -c '
       test -e book.toml || mdbook init;
-      mdbook serve -n 0.0.0.0 -p 3000
+      mdbook serve -n 0.0.0.0 -p $PORT -w $WPORT
       '
