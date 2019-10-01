@@ -3,7 +3,6 @@ services:
   web:
     user: "$UID:$GID"
     build: .
-    network_mode: host
     volumes:
      - ./mdbook:/mdbook
     ports:
@@ -11,5 +10,5 @@ services:
     command: >
       bash -c '
       test -e book.toml || mdbook init;
-      mdbook serve -p 3000
+      mdbook serve -n 0.0.0.0 -p 3000
       '
